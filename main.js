@@ -12,14 +12,14 @@ var delay = 500 // Amount in ms before another link is clicked
 var cur = 1;
 function doClick() {
   setTimeout(function() {
-      console.log("Completion - " + Math.round(i/total*100) + "% (" + i + "/" + total+ ")")
+      console.log("Completion - " + Math.round(cur/total*100) + "% (" + cur + "/" + total+ ")")
     var elements = document.getElementsByTagName("a");
     var requiredElement = elements[0];
     requiredElement.click();
     requiredElement.remove();
 
     cur++;
-    if (i < total) {
+    if (cur < total) {
       doClick();
     }
   }, delay)
