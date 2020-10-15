@@ -4,19 +4,19 @@
 
 
 // Settings
-                 
-var total = 1500 // 
-var delay = 500
+
+var total = 1500 // How many links should be click?
+var delay = 500 // Amount in ms before another link is clicked
 
 // Process
-var cur = 1; 
+var cur = 1;
 function doClick() {
   setTimeout(function() {
-  		console.log("Completion - " + Math.round(i/total*100) + "% (" + i + "/" + total+ ")")
-		var elements = document.getElementsByTagName("a");
-		var requiredElement = elements[0];
-		requiredElement.click();
-		requiredElement.remove();
+      console.log("Completion - " + Math.round(i/total*100) + "% (" + i + "/" + total+ ")")
+    var elements = document.getElementsByTagName("a");
+    var requiredElement = elements[0];
+    requiredElement.click();
+    requiredElement.remove();
 
     cur++;
     if (i < total) {
