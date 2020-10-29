@@ -5,13 +5,18 @@
 
 // Settings
 
-var total = 1500 // How many links should be click?
+var total = 2000 // How many links should be click?
 var delay = 500 // Amount in ms before another link is clicked
-var ignoreCount = 12 // Ignore this amount of links before starting to click them
+var ignoreCount = 500 // Ignore this amount of links before starting to click them
 
 // Process
 var cur = 1;
 function doClick() {
+    var curDelay = delay
+    if (cur < ignoreCount) {
+        curDelay = 1
+    }
+
   setTimeout(function() {
           console.log("Completion - " + Math.round(cur/total*100) + "% (" + cur + "/" + total+ ")")
         var elements = document.getElementsByTagName("a");
@@ -19,15 +24,14 @@ function doClick() {
         
         if (cur > ignoreCount) {
             requiredElement.click();
+            requiredElement.remove();
         }
-        
-        requiredElement.remove();
-
+     
     cur++;
     if (cur < total) {
       doClick();
     }
-  }, delay)
+  }, curDelay)
 }
 
 doClick(); // Start the process
