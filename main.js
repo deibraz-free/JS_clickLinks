@@ -24,8 +24,8 @@ function doClick() {
         
         if (cur > ignoreCount) {
             requiredElement.click();
-            requiredElement.remove();
         }
+        requiredElement.remove();
      
     cur++;
     if (cur < total) {
